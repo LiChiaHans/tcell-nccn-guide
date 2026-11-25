@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T 細胞淋巴瘤 (T-Cell Lymphomas) — NCCN v1.2027 臨床速查手冊</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0f4c81;
+      --primary-light: #e0f0ff;
+      --accent: #0284c7;
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;
+      --danger-text: #991b1b;
+      --warn-bg: #fffbeb;
+      --warn-border: #f59e0b;
+      --warn-text: #92400e;
+      --ok-bg: #f0fdf4;
+      --ok-border: #22c55e;
+      --ok-text: #166534;
+      --info-bg: #eff6ff;
+      --info-border: #3b82f6;
+      --info-text: #1e40af;
+      --purple-bg: #f5f3ff;
+      --purple-border: #8b5cf6;
+      --purple-text: #5b21b6;
+      --badge-bg: #e2e8f0;
+      --badge-text: #334155;
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      --radius: 12px;
+      --sidebar-w: 290px;
+      --topbar-h: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --border: #293548;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-light: #0c4a6e;
+      --accent: #0ea5e9;
+      --danger-bg: #2c1215;
+      --danger-border: #f87171;
+      --danger-text: #fca5a5;
+      --warn-bg: #2b200a;
+      --warn-border: #fbbf24;
+      --warn-text: #fde68a;
+      --ok-bg: #0b2619;
+      --ok-border: #4ade80;
+      --ok-text: #86efac;
+      --info-bg: #0f213d;
+      --info-border: #60a5fa;
+      --info-text: #93c5fd;
+      --purple-bg: #1e1538;
+      --purple-border: #a78bfa;
+      --purple-text: #ddd6fe;
+      --badge-bg: #1e293b;
+      --badge-text: #cbd5e1;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--topbar-h);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 20px;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .brand .ver {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .search-wrap {
+      flex: 1;
+      max-width: 480px;
+      margin-left: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-wrap input {
+      width: 100%;
+      padding: 8px 82px 8px 34px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .search-wrap input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      font-size: 14px;
+      pointer-events: none;
+    }
+    .search-meta {
+      position: absolute;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .clear-btn {
+      display: none;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: none;
+      border-radius: 999px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background .15s;
+    }
+    .icon-btn:hover { background: var(--primary-light); color: var(--primary); }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: var(--topbar-h);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 16px 12px 32px;
+      z-index: 90;
+      transition: transform .25s ease;
+    }
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      padding: 12px 10px 4px;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: background .15s, color .15s;
+    }
+    .nav-link:hover { background: var(--surface-alt); color: var(--primary); }
+    .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .nav-code {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--surface-alt);
+      padding: 1px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .nav-link.active .nav-code {
+      background: rgba(2, 132, 199, 0.15);
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    .main {
+      margin-left: var(--sidebar-w);
+      padding: calc(var(--topbar-h) + 24px) 28px 80px;
+      max-width: 1140px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f4c81 0%, #0369a1 60%, #0d9488 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 26px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+    .hero p {
+      margin: 0 0 14px;
+      opacity: .92;
+      font-size: 14.5px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(4px);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .quick-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .quick-pill {
+      background: rgba(255,255,255,.94);
+      color: #0f4c81;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 999px;
+      transition: transform .15s, background .15s;
+    }
+    .quick-pill:hover { transform: translateY(-1px); background: #ffffff; }
+
+    /* Sections */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: calc(var(--topbar-h) + 16px);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      margin: 0;
+      font-size: 19px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    h3 {
+      margin: 18px 0 10px;
+      font-size: 15.5px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    h4 {
+      margin: 12px 0 6px;
+      font-size: 14px;
+      color: var(--primary);
+    }
+    p { margin: 6px 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--info-border);
+      background: var(--info-bg);
+      color: var(--info-text);
+      padding: 11px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .callout.danger { border-color: var(--danger-border); background: var(--danger-bg); color: var(--danger-text); }
+    .callout.warn { border-color: var(--warn-border); background: var(--warn-bg); color: var(--warn-text); }
+    .callout.ok { border-color: var(--ok-border); background: var(--ok-bg); color: var(--ok-text); }
+    .callout.purple { border-color: var(--purple-border); background: var(--purple-bg); color: var(--purple-text); }
+    .callout strong { font-weight: 700; }
+
+    /* Grid & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 14px;
+      margin: 10px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 10px 0;
+    }
+    .card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    /* Badges */
+    .tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      vertical-align: middle;
+    }
+    .tag.cat1 { background: #dcfce7; color: #166534; }
+    .tag.cat2b { background: #fef3c7; color: #92400e; }
+    .tag.cat3 { background: #fee2e2; color: #991b1b; }
+    .tag.new { background: #dbeafe; color: #1e40af; }
+    .tag.pref { background: #e0f2fe; color: #0369a1; }
+    [data-theme="dark"] .tag.cat1 { background: #14532d; color: #86efac; }
+    [data-theme="dark"] .tag.cat2b { background: #451a03; color: #fde68a; }
+    [data-theme="dark"] .tag.cat3 { background: #450a0a; color: #fca5a5; }
+    [data-theme="dark"] .tag.new { background: #1e3a8a; color: #93c5fd; }
+    [data-theme="dark"] .tag.pref { background: #0c4a6e; color: #7dd3fc; }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 10px 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 9px 11px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(2, 132, 199, 0.04); }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .tab-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all .15s;
+    }
+    .tab-btn:hover { color: var(--primary); border-color: var(--accent); }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Flow steps */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .flow-step {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .flow-arrow { color: var(--accent); font-weight: 700; }
+
+    /* Details / Accordion */
+    details {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 14px;
+      margin: 10px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    /* Search Highlight */
+    mark.hl {
+      background: #fde047;
+      color: #0f172a;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+    .section.search-hidden { display: none; }
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      color: var(--text-muted);
+    }
+
+    /* Back to top */
+    .to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      z-index: 80;
+    }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 85;
+    }
+    .overlay.show { display: block; }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .menu-btn { display: inline-flex; }
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: calc(var(--topbar-h) + 16px) 16px 64px; }
+      .brand .ver { display: none; }
+    }
+    @media print {
+      .topbar, .sidebar, .to-top, .quick-pills, .tabs { display: none !important; }
+      .tab-panel { display: block !important; }
+      .main { margin: 0; padding: 0; max-width: 100%; }
+      .section { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="開啟目錄">☰</button>
+    <div class="brand">
+      <span>🩸 T-Cell Lymphomas 臨床速查</span>
+      <span class="ver">NCCN v1.2027</span>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋亞型、藥物、基因或關鍵字 (按 / 快捷鍵)..." autocomplete="off" />
+      <div class="search-meta">
+        <span id="searchCount"></span>
+        <button class="clear-btn" id="clearSearch" title="清除搜尋">×</button>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeBtn" title="切換深淺色">🌙</button>
+      <button class="icon-btn" onclick="window.print()" title="列印或存為 PDF">🖨️</button>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="nav-group-title">總覽與版本更新</div>
+    <a class="nav-link active" href="#updates">v1.2027 重要更新 <span class="nav-code">UPDATES</span></a>
+
+    <div class="nav-group-title">主要疾病個論</div>
+    <a class="nav-link" href="#ptcl">1. 周邊 T 細胞淋巴瘤 <span class="nav-code">PTCL</span></a>
+    <a class="nav-link" href="#bia-alcl">2. 乳房植入物相關 ALCL <span class="nav-code">BIA-ALCL</span></a>
+    <a class="nav-link" href="#lgll">3. T 細胞大顆粒淋巴球白血病 <span class="nav-code">T-LGLL</span></a>
+    <a class="nav-link" href="#tpll">4. T 細胞前淋巴球白血病 <span class="nav-code">T-PLL</span></a>
+    <a class="nav-link" href="#atll">5. 成人 T 細胞白血病/淋巴瘤 <span class="nav-code">ATLL</span></a>
+    <a class="nav-link" href="#hstcl">6. 肝脾 T 細胞淋巴瘤 <span class="nav-code">HSTCL</span></a>
+    <a class="nav-link" href="#enkl">7. 結外 NK/T 細胞淋巴瘤 & ANKL <span class="nav-code">ENKL</span></a>
+    <a class="nav-link" href="#intcl">8. 胃腸道惰性 T/NK-LPD <span class="nav-code">INTCL</span></a>
+
+    <div class="nav-group-title">跨章節原則與工具</div>
+    <a class="nav-link" href="#biomarkers">9. 生物標記檢測原則 <span class="nav-code">TCLYM-A</span></a>
+    <a class="nav-link" href="#supportive">10. 支持性照護與毒性管理 <span class="nav-code">TCLYM-B</span></a>
+    <a class="nav-link" href="#lugano-rt">11. Lugano 療效與放療原則 <span class="nav-code">C / D</span></a>
+    <a class="nav-link" href="#ihc-hlh">12. 免疫表型鑑別與次發性 HLH <span class="nav-code">E / F</span></a>
+    <a class="nav-link" href="#classification">13. WHO5 vs ICC 分類與分期 <span class="nav-code">ST / CAT</span></a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main" id="mainContent">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>T 細胞淋巴瘤 (T-Cell Lymphomas) 臨床速查手冊</h1>
+      <p>完整整理並繁體中文化 <strong>NCCN Clinical Practice Guidelines in Oncology: T-Cell Lymphomas Version 1.2027</strong>（2026 年 11 月 10 日發布），涵蓋八大成熟 T/NK 細胞腫瘤診斷、分期、預後評分、一二線處方、生物標記、支持性照護與次發性 HLH 處置。</p>
+      <div class="hero-meta">
+        <span class="hero-tag">📘 NCCN Version 1.2027 (2026/11/10)</span>
+        <span class="hero-tag">🧬 同步更新 WHO5 (2024) & ICC (2022) 命名</span>
+        <span class="hero-tag">⚡ 預設均為 Category 2A（除非另有標註）</span>
+      </div>
+      <div class="quick-pills">
+        <a class="quick-pill" href="#updates">🆕 v1.2027 更新</a>
+        <a class="quick-pill" href="#ptcl">PTCL / ALCL / TFH</a>
+        <a class="quick-pill" href="#bia-alcl">BIA-ALCL</a>
+        <a class="quick-pill" href="#lgll">T-LGLL</a>
+        <a class="quick-pill" href="#tpll">T-PLL</a>
+        <a class="quick-pill" href="#atll">ATLL (HTLV-1)</a>
+        <a class="quick-pill" href="#hstcl">HSTCL</a>
+        <a class="quick-pill" href="#enkl">ENKL / ANKL</a>
+        <a class="quick-pill" href="#intcl">GI Indolent LPD</a>
+        <a class="quick-pill" href="#biomarkers">生物標記</a>
+        <a class="quick-pill" href="#supportive">支持照護</a>
+        <a class="quick-pill" href="#ihc-hlh">次發性 HLH</a>
+      </div>
+    </section>
+
+    <div class="no-results" id="noResults">
+      <h3>找不到符合的章節或內容</h3>
+      <p>請嘗試其他關鍵字（例如：<code>BV</code>、<code>CHOP</code>、<code>DUSP22</code>、<code>EBV</code>、<code>HLH</code>、<code>Alemtuzumab</code>、<code>ICE</code>、<code>P-GEMOX</code>）。</p>
+    </div>
+
+    <!-- UPDATES -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <h2>🆕 Version 1.2027 重要更新摘要</h2>
+        <span class="sec-badge">UPDATES (2026/11/10)</span>
+      </div>
+      <div class="callout">
+        <strong>全篇共通更新：</strong>全面更新疾病命名以對齊 <strong>WHO5 (2024)</strong> 與 <strong>ICC (2022)</strong>；所有 IHC 與流式細胞儀標記改以字母順序排列；更新參考文獻。
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">PTCL & BIA-ALCL <span class="tag new">更新</span></div>
+          <ul>
+            <li><strong>ALCL, ALK-negative 路徑調整 (PTCL-3/5/6)：</strong>移至上方 ALCL 專屬路徑，與 ALK+ ALCL 並列但於療畢 CR 時分流（ALK+ 僅高風險 IPI 考慮 Auto-HCT；ALK- 均可考慮 Auto-HCT / 臨床試驗 / 觀察）。</li>
+            <li><strong>DUSP22 重排註腳修訂：</strong>明載跨研究預後具變異性（部分研究似 ALK+，部分顯示無影響）。</li>
+            <li><strong>HyperCVAD 降階 (PTCL-B 1)：</strong>從 Other Recommended 移至 <em>Useful in Certain Circumstances</em> <span class="tag cat3">Cat 3</span>。</li>
+            <li><strong>口服化療與 Etoposide：</strong>無移植計畫二線/姑息新增 <strong>Cyclophosphamide/Etoposide (IV 或 PO)</strong>；口服 Etoposide 200 mg/m²（為 IV 劑量 2 倍）建議日劑量平分為 2 次服用。</li>
+            <li><strong>BIA-ALCL (BIAA-A)：</strong>系統性治療新增 <strong>CHEP + Brentuximab vedotin</strong>（Other Recommended）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">T-LGLL、T-PLL、ATLL、ENKL <span class="tag new">更新</span></div>
+          <ul>
+            <li><strong>T-LGLL (LGLL-1/2/2A)：</strong><strong>HIV 檢測</strong>升格為必檢 (Essential)；無反應路徑新增 <strong>Cyclosporine</strong> 或 <strong>Ruxolitinib</strong>；詳列 Cyclophosphamide 第 III 期劑量（100 mg/d 至第 8 月後減為 50 mg/d 共 12 個月，無反應限 4 個月）。</li>
+            <li><strong>T-PLL (TPLL-1)：</strong>特定情況診斷新增 <strong>Consider MGPT</strong>（多基因套組檢測）。</li>
+            <li><strong>ATLL (ATLL-2/D)：</strong>強調<strong>單用抗病毒藥（不含干擾素）無效</strong>；CD30+ 一線首選新增 <strong>CHEP + Brentuximab vedotin</strong>。</li>
+            <li><strong>ENKL (ENKL-4/5/B)：</strong>療畢評估拆分為鼻型 (ENKL-4) 與鼻外型 (ENKL-5)；復發/難治 (R/R) 首選新增 <strong>Atezolizumab</strong>，其他推薦新增 <strong>Cemiplimab-rwlc + Isatuximab-irfc</strong> <span class="tag cat2b">Cat 2B</span>。</li>
+            <li><strong>Alemtuzumab 取得：</strong>全指引統一更新為可透過 <em>Alemtuzumab Access Programme</em> 取得，均須 CMV 監測與 PJP 預防。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. PTCL -->
+    <section class="section" id="ptcl">
+      <div class="section-header">
+        <h2>1. 周邊 T 細胞淋巴瘤 (Peripheral T-Cell Lymphomas, PTCL)</h2>
+        <span class="sec-badge">PTCL-1 ~ PTCL-9 / A / B</span>
+      </div>
+      <p>PTCL 源自成熟 T 細胞，約佔非何杰金氏淋巴瘤 (NHL) 之 10%，整體預後較侵襲性 B 細胞淋巴瘤差（除 ALK+ ALCL 外）。主要涵蓋亞型：<strong>PTCL-NOS (26%)</strong>、<strong>結內濾泡輔助型 T 細胞淋巴瘤 (Nodal TFH / AITL, 19%)</strong>、<strong>ALCL ALK+ (7%)</strong>、<strong>ALCL ALK- (6%)</strong>、<strong>EATL (&lt;5%)</strong> 與 <strong>MEITL</strong>。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🔬 診斷與病理評估 (PTCL-1)</div>
+          <ul>
+            <li><strong>切片原則：</strong>由血液病理專家審閱；<strong>切除或切開切片 (Excisional/Incisional) 優於粗針切片</strong>，單獨細針抽吸 (FNA) 不足。</li>
+            <li><strong>必檢 IHC / Flow 與 EBER-ISH：</strong>
+              <ul>
+                <li>IHC：ALK, BCL6, CD2, CD3, CD4, CD5, CD7, CD8, CD10, CD20, CD21, CD23, CD30, CD56, Ki-67, PD1/CD279, TCRβ, TCRδ, TP63。</li>
+                <li>疑似 <strong>Nodal TFH 淋巴瘤</strong>：至少須檢測 2 項（理想 3 項）TFH 標記：<strong>BCL6, CD10, CXCL13, ICOS, PD1/CD279</strong>。</li>
+                <li><strong>EBER-ISH 必檢</strong>（AITL 偶會合併 EBV+ DLBCL）。</li>
+                <li>Flow 含 <strong>TRBC1</strong> 協助評估 T 細胞單株性。</li>
+              </ul>
+            </li>
+            <li><strong>特定情況加測：</strong>TRB/TRG 單株性；ALK- ALCL 測 <strong>DUSP22 重排</strong>、若 TP63 IHC+ 測 <strong>TP63 重排</strong>；FISH/MGPT 測 <strong>JAK2 / TYK2 重排</strong>與 TFH 相關突變；細胞毒性蛋白 (TIA-1, granzyme B, perforin)；強烈鼓勵測 <strong>HTLV-1/2</strong>（陽性則改診斷為 ATLL）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📋 分期與治療前檢查 (PTCL-3)</div>
+          <ul>
+            <li><strong>必檢 (Essential)：</strong>完整病史理學檢查（含全身皮膚、Waldeyer's ring、肝脾、鼻咽）、PS、B 症狀、CBC/DC、<strong>骨髓切片 ± 抽吸</strong>、LDH、CMP、尿酸、<strong>FDG-PET/CT（首選）</strong>± 顯影劑 C/A/P CT、計算 <strong>IPI</strong>、心臟超音波或 MUGA（若用 Anthracycline）、育齡驗孕、心理困擾評估。</li>
+            <li><strong>特定情況：</strong>頸部 CT、頭部 CT/MRI、有神經症狀時評估 CNS（鞘內預防角色未明）、皮膚切片、HIV、HBV/HCV、周邊血 Flow、定量 EBV PCR、<strong>新診斷 EATL 評估乳糜瀉 (Celiac disease)</strong>、HTLV-1/2、生育保存諮詢。</li>
+          </ul>
+          <div class="callout warn" style="margin-bottom:0;">
+            <strong>臨床提醒：</strong>T 細胞淋巴瘤常有結外侵犯，CT 容易低估，<strong>FDG-PET/CT 為分期與療效評估首選</strong>。MEITL 已獨立分出，目前最佳治療尚未確立。
+          </div>
+        </div>
+      </div>
+
+      <h3>📊 PTCL 預後評分系統 (PTCL-A)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>評分模型</th>
+              <th>危險因子 (每項 1 分)</th>
+              <th>風險分層</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>IPI (全體病人)</strong></td>
+              <td>年齡 &gt;60 歲、LDH &gt;正常、ECOG PS 2–4、Stage III/IV、結外侵犯 &gt;1 處</td>
+              <td>Low (0–1)、Low-Int (2)、High-Int (3)、High (4–5)</td>
+            </tr>
+            <tr>
+              <td><strong>aaIPI (≤60 歲)</strong></td>
+              <td>Stage III/IV、LDH &gt;正常、ECOG PS 2–4</td>
+              <td>Low (0)、Low-Int (1)、High-Int (2)、High (3)</td>
+            </tr>
+            <tr>
+              <td><strong>PIT (PTCL-NOS)</strong></td>
+              <td>年齡 &gt;60 歲、LDH &gt;正常、ECOG PS 2–4、<strong>骨髓侵犯</strong></td>
+              <td>Group 1 (0)、Group 2 (1)、Group 3 (2)、Group 4 (3–4)</td>
+            </tr>
+            <tr>
+              <td><strong>modified-PIT</strong></td>
+              <td>年齡 &gt;60 歲、LDH &gt;正常、ECOG PS 2–4、<strong>Ki-67 ≥80%</strong></td>
+              <td>Group 1 (0–1)、Group 2 (2)、Group 3 (3–4)</td>
+            </tr>
+            <tr>
+              <td><strong>T-Cell Score</strong></td>
+              <td>Stage III–IV、ECOG PS 2–4、<strong>Albumin &lt;35 g/L</strong>、<strong>ANC &gt;6.5 × 10⁹/L</strong></td>
+              <td>Low (0)、Int (1–2)、High (3–4)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13.5px; color:var(--text-muted);">💡 <strong>POD24 (24 個月內疾病進展)：</strong>強力不良預後指標（有 POD24 中位 OS 僅 5 個月，5 年 OS 11% vs 無 POD24 78%）。PTCL-NOS 分子亞型中 <strong>GATA3 高表現</strong> 預後較 TBX21 差。</p>
+
+      <h3>💊 PTCL 治療流程與建議處方 (PTCL-4 ~ PTCL-9 & PTCL-B)</h3>
+      <div class="tabs" data-tab-group="ptcl">
+        <button class="tab-btn active" data-target="ptcl-1l">一線治療與鞏固</button>
+        <button class="tab-btn" data-target="ptcl-rr-nos">R/R: PTCL-NOS / EATL / MEITL</button>
+        <button class="tab-btn" data-target="ptcl-rr-tfh">R/R: TFH / AITL</button>
+        <button class="tab-btn" data-target="ptcl-rr-alcl">R/R: ALCL (ALK+ / ALK-)</button>
+        <button class="tab-btn" data-target="ptcl-pall">姑息治療與追蹤</button>
+      </div>
+
+      <!-- Tab 1: First-line -->
+      <div class="tab-panel active" id="ptcl-1l">
+        <div class="flow">
+          <div class="flow-step">誘導化療 (共 6 cycles) ± ISRT</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">3–4 cycles 期中 PET/CT</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">CR/PR 完成療程 → 療畢 PET/CT</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">達 CR (PET 陰性)：評估 Auto-HCT 鞏固或觀察</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>亞型</th>
+                <th>治療路徑重點</th>
+                <th>首選 (Preferred)</th>
+                <th>其他推薦 / 特定情況</th>
+                <th>CR1 鞏固治療</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ALCL, ALK+</strong></td>
+                <td>Stage I–II：化療 6 療程 ± ISRT（或 3–4 療程 + ISRT <span class="tag cat2b">Cat 2B</span>）<br/>Stage III–IV：化療 6 療程</td>
+                <td>• <strong>CHP + Brentuximab vedotin (BV)</strong> <span class="tag cat1">Cat 1</span></td>
+                <td><strong>Other：</strong>CHEP + BV、CHOEP、CHOP、DA-EPOCH</td>
+                <td>多數<strong>觀察</strong>；<strong>僅高風險 IPI</strong> 考慮 Auto-HCT</td>
+              </tr>
+              <tr>
+                <td><strong>ALCL, ALK-</strong></td>
+                <td>Stage I–IV：臨床試驗 (首選) 或 化療 6 療程 ± ISRT<br/><em>*DUSP22 重排預後具變異性，TP63 重排預後極差</em></td>
+                <td>• <strong>CHP + BV</strong> <span class="tag cat1">Cat 1</span></td>
+                <td><strong>Other：</strong>CHEP + BV、CHOEP、CHOP、DA-EPOCH</td>
+                <td>臨床試驗、考慮 <strong>Auto-HCT</strong> 或觀察</td>
+              </tr>
+              <tr>
+                <td><strong>其他亞型：</strong><br/>PTCL-NOS<br/>EATL / MEITL<br/>Nodal TFH (AITL/NOS/Follicular)</td>
+                <td>Stage I–IV：<strong>臨床試驗 (首選)</strong> 或 化療 6 療程 ± ISRT<br/><em>*任意程度 CD30 陽性即可使用含 BV 方案</em></td>
+                <td>• CHOEP<br/>• CHOP<br/>• <strong>CHP + BV (CD30+)</strong><br/>• Dose-adjusted EPOCH</td>
+                <td><strong>Other：</strong>CHEP + BV (CD30+)、CHOP→IVE 交替中劑量 MTX (Newcastle 方案，僅用於 EATL，含 HCT)<br/><strong>Useful：</strong>HyperCVAD/HD-MTX-AraC <span class="tag cat3">Cat 3</span></td>
+                <td>臨床試驗、考慮 <strong>Auto-HCT</strong> 或觀察（局部病灶可於移植前後加 ISRT）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout ok">
+          <strong>關鍵試驗實證：</strong><strong>ECHELON-2</strong> 證實 CHP+BV 優於 CHOP（5 年 PFS 51% vs 43%，5 年 OS 70% vs 61%；ALCL 獲益最明確）。療畢若為 PR（持續或新發 PET 陽性）應先<strong>重複切片</strong>（尤其 AITL 須排除合併 EBV+ DLBCL）再進入 R/R 治療。
+        </div>
+      </div>
+
+      <!-- Tab 2: R/R PTCL-NOS/EATL/MEITL -->
+      <div class="tab-panel" id="ptcl-rr-nos">
+        <p><strong>R/R 治療原則 (PTCL-8)：</strong>強烈優先納入<strong>臨床試驗</strong>。若計畫移植，二線達 CR/PR 後建議 <strong>Allogeneic HCT（推薦）</strong>或 Autologous HCT；若對二線無反應，改用替代二線方案。</p>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">計畫移植 (Intention to Transplant)</div>
+            <p><strong>Preferred：</strong>臨床試驗</p>
+            <ul>
+              <li><strong>單藥：</strong>Belinostat、BV (CD30+)、Duvelisib<sup>*</sup>、Pralatrexate、Romidepsin</li>
+              <li><strong>合併化療：</strong>DHA + 鉑類 (Carbo/Cis/Oxaliplatin)、ESHA + 鉑類 (Cis/Oxaliplatin)、GDP、GemOx、ICE</li>
+            </ul>
+            <p><strong>Other Recommended：</strong>單藥 Bendamustine, Gemcitabine, Lenalidomide, Ruxolitinib <span class="tag cat2b">2B</span>；合併 Duvelisib/Romidepsin, GVD<sup>†</sup>, Bendamustine + BV (CD30+) <span class="tag cat2b">2B</span></p>
+          </div>
+          <div class="card">
+            <div class="card-title">不計畫移植 (No Intention to Transplant)</div>
+            <p><strong>Preferred：</strong>臨床試驗、Belinostat、BV (CD30+)、Duvelisib<sup>*</sup>、Pralatrexate、Romidepsin</p>
+            <p><strong>Other Recommended：</strong></p>
+            <ul>
+              <li><strong>單藥：</strong>Alemtuzumab、Bendamustine、Cyclophosphamide (IV/PO)、Etoposide (IV/PO)、Gemcitabine、Lenalidomide、RT、Ruxolitinib <span class="tag cat2b">2B</span></li>
+              <li><strong>合併：</strong>Bendamustine + BV (CD30+) <span class="tag cat2b">2B</span>、<strong>Cyclophosphamide/Etoposide (IV/PO)</strong> <span class="tag new">v1.2027</span></li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size:13px; color:var(--text-muted);">*Duvelisib PRIMO 建議劑量：75 mg BID × 2 cycles 後改 25 mg BID 長期維持。†使用 BV 後須間隔 3–4 週再啟用含 Gemcitabine/Liposomal doxorubicin 方案，避免肺毒性。</p>
+      </div>
+
+      <!-- Tab 3: R/R TFH/AITL -->
+      <div class="tab-panel" id="ptcl-rr-tfh">
+        <div class="callout purple">
+          <strong>TFH / AITL 治療特色：</strong>表觀遺傳修飾劑（<strong>HDAC 抑制劑如 Romidepsin / Belinostat</strong>、<strong>Azacitidine</strong>）與 <strong>Duvelisib</strong>、Lenalidomide、Bendamustine 在 TFH 亞型反應率較佳；Cyclosporine 亦為有效選項（須密切追蹤腎功能）。
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">計畫移植 (TFH / AITL)</div>
+            <ul>
+              <li><strong>Preferred：</strong>臨床試驗；單藥 Belinostat, BV (CD30+), Duvelisib, Romidepsin；合併 DHA+鉑類, ESHA+鉑類, GDP, GemOx, ICE。</li>
+              <li><strong>Other Recommended：</strong>單藥 <strong>Azacitidine (PO/IV/SC)</strong>, Bendamustine, Gemcitabine, Lenalidomide, Pralatrexate, Ruxolitinib <span class="tag cat2b">2B</span>；合併 <strong>Duvelisib/Romidepsin</strong> (TFH ORR 71%), GVD, Bendamustine+BV (CD30+) <span class="tag cat2b">2B</span>。</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">不計畫移植 (TFH / AITL)</div>
+            <ul>
+              <li><strong>Preferred：</strong>臨床試驗、Belinostat、BV (CD30+)、Duvelisib、Romidepsin。</li>
+              <li><strong>Other Recommended：</strong>單藥 Alemtuzumab, Azacitidine (PO/IV/SC), Bendamustine, Cyclophosphamide (IV/PO), <strong>Cyclosporine</strong>, Etoposide (IV/PO), Gemcitabine, Lenalidomide, Pralatrexate, RT, Ruxolitinib <span class="tag cat2b">2B</span>；合併 Bendamustine+BV <span class="tag cat2b">2B</span>, Cyclophosphamide/Etoposide (IV/PO), Duvelisib/Romidepsin <span class="tag cat2b">2B</span>。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: R/R ALCL -->
+      <div class="tab-panel" id="ptcl-rr-alcl">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">R/R ALCL 首選與 ALK 抑制劑</div>
+            <ul>
+              <li><strong>Preferred (無論是否移植)：</strong>臨床試驗、<strong>Brentuximab vedotin (BV)</strong>（5 年 OS 60%，ORR 86%）。</li>
+              <li><strong>ALK 抑制劑（僅限 ALK+ ALCL）：</strong>
+                <ul>
+                  <li>第一代：Crizotinib（無 CNS 穿透力）</li>
+                  <li>第二/三代（<strong>具 CNS 穿透力，CNS 侵犯適用</strong>）：<strong>Alectinib、Brigatinib、Ceritinib、Lorlatinib</strong></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">其他推薦方案 (R/R ALCL)</div>
+            <ul>
+              <li><strong>單藥：</strong>Belinostat, Bendamustine, Duvelisib, Gemcitabine, Pralatrexate, Romidepsin, Ruxolitinib <span class="tag cat2b">2B</span>；不移植者另含 Cyclophosphamide (IV/PO), Etoposide (IV/PO), RT。</li>
+              <li><strong>合併 (計畫移植)：</strong>DHA+鉑類, ESHA+鉑類, GDP, GemOx, GVD, ICE, Bendamustine+BV <span class="tag cat2b">2B</span>。</li>
+              <li><strong>合併 (不計畫移植)：</strong>Bendamustine+BV <span class="tag cat2b">2B</span>, Cyclophosphamide/Etoposide (IV/PO)。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Palliative & Follow-up -->
+      <div class="tab-panel" id="ptcl-pall">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">初始姑息治療 (PTCL-B 2 of 8)</div>
+            <ul>
+              <li><strong>ALCL Preferred：</strong>臨床試驗、Brentuximab vedotin。（Other 含 ALK 抑制劑、Belinostat、Bendamustine、Cyclophosphamide/Etoposide、RT 等）</li>
+              <li><strong>PTCL-NOS / EATL / MEITL Preferred：</strong>臨床試驗、Belinostat、BV (CD30+)、Duvelisib、Pralatrexate、Romidepsin。</li>
+              <li><strong>TFH Preferred：</strong>臨床試驗、Belinostat、BV (CD30+)、Duvelisib、Romidepsin。（Other 含 Cyclosporine、Azacitidine <span class="tag cat2b">2B</span> 等）</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">療後追蹤 (PTCL-5/7/9)</div>
+            <ul>
+              <li><strong>臨床追蹤：</strong>前 2 年每 3–6 個月 H&amp;P，之後依臨床需要。</li>
+              <li><strong>影像監測：</strong>前 2 年不超過每 6 個月一次，之後每年一次持續 5 年或依臨床需要（PET 優於 CT）。</li>
+              <li><strong>第 2 次以上復發：</strong>臨床試驗、替代二線治療、姑息性放療 (RT) 及/或最佳支持照護。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BIA-ALCL -->
+    <section class="section" id="bia-alcl">
+      <div class="section-header">
+        <h2>2. 乳房植入物相關間變性大細胞淋巴瘤 (BIA-ALCL)</h2>
+        <span class="sec-badge">BIAA-INTRO ~ BIAA-B</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🩺 臨床特徵與診斷流程 (BIAA-1)</div>
+          <ul>
+            <li><strong>高風險因子：</strong>幾乎皆發生於<strong>粗糙面 (textured)</strong> 乳房植入物，植入 <strong>&gt;1 年後（平均 7–9 年）</strong>出現延遲性植入物周圍積液 (seroma) 或乳房不對稱；少數以腫塊、區域淋巴結腫大或皮膚潰瘍表現。多數病程惰性、預後極佳。</li>
+            <li><strong>初始影像：</strong>首選<strong>乳房與腋下超音波</strong>；若無法確診則做顯影劑乳房 MRI；選定個案做 FDG-PET/CT。</li>
+            <li><strong>病理採檢：</strong>
+              <ul>
+                <li>積液 FNA 抽吸：<strong>至少 &gt;50 mL</strong> 做細胞學與細胞塊 (cell block)，另取 <strong>&gt;10 mL</strong> 做流式細胞儀（建議首次抽吸即送病理，避免多次抽吸稀釋腫瘤細胞）。</li>
+                <li>免疫表型：<strong>CD30 均勻強陽性、ALK 陰性</strong>、單株 T 細胞（IHC/Flow 含 ALK, CD2, CD3, CD4, CD5, CD7, CD8, CD30, CD45）。</li>
+                <li>病理不確定須送醫學中心二次會診；確診個案 FDA 建議通報 <strong>PROFILE Registry</strong>。</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📐 專用 TNM 分期系統 (BIAA-B)</div>
+          <div class="table-wrap" style="margin:0;">
+            <table>
+              <thead>
+                <tr><th>分期</th><th>TNM 定義</th><th>說明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>IA</strong></td><td>T1 N0 M0</td><td>T1：侷限於積液或包膜內腔面單層</td></tr>
+                <tr><td><strong>IB</strong></td><td>T2 N0 M0</td><td>T2：早期包膜浸潤</td></tr>
+                <tr><td><strong>IC</strong></td><td>T3 N0 M0</td><td>T3：細胞團塊或片狀浸潤包膜</td></tr>
+                <tr><td><strong>IIA</strong></td><td>T4 N0 M0</td><td>T4：淋巴瘤浸潤超越包膜</td></tr>
+                <tr><td><strong>IIB</strong></td><td>T1–3 N1 M0</td><td>N1：單顆區域淋巴結 (+)</td></tr>
+                <tr><td><strong>III</strong></td><td>T4 N1–2 M0</td><td>N2：多顆區域淋巴結 (+)</td></tr>
+                <tr><td><strong>IV</strong></td><td>T any N any M1</td><td>M1：遠端器官/骨髓轉移</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h3>🔪 治療原則與系統性處方 (BIAA-2 & BIAA-A)</h3>
+      <ul>
+        <li><strong>多專科團隊 (MDT)：</strong>涵蓋腫瘤內科/血液科、腫瘤外科、整形外科、血液病理科。骨髓切片僅用於廣泛期或不明原因血球低下。</li>
+        <li><strong>核心手術：</strong><strong>全包膜切除 (Total capsulectomy) + 植入物移除 + 相關腫塊切除 + 可疑淋巴結切片</strong>（不需做乳房切除或前哨淋巴結切片）。<strong>建議考慮移除對側植入物</strong>（約 <strong>4.6%</strong> 雙側同時侵犯）。重建可採用自體組織或光滑面植入物。</li>
+        <li><strong>術後處置：</strong>
+          <ul>
+            <li><strong>完全切除無殘留（侷限期 IA–IC）：</strong>定期觀察（H&amp;P 前 2 年每 3–6 個月；影像前 2 年不超過每 6 個月）。</li>
+            <li><strong>不完全切除 / 局部殘留 ± 區域淋巴結轉移：</strong>局部殘留給予 <strong>RT (24–36 Gy)</strong> ± 系統性治療（若淋巴結陽性或無法放療）。</li>
+            <li><strong>廣泛型 (Stage II–IV) 或無法切除：</strong>給予系統性治療（達 CR 後比照 ALK- ALCL 處理）。</li>
+          </ul>
+        </li>
+        <li><strong>系統性治療處方 (BIAA-A)：</strong>
+          <span class="tag pref">Preferred</span> <strong>Brentuximab vedotin</strong>（低腫瘤負荷適用）、<strong>CHP + BV</strong> ｜
+          <span class="tag">Other</span> <strong>CHEP + BV</strong> <span class="tag new">v1.2027</span>、CHOEP、CHOP、DA-EPOCH。
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. T-LGLL -->
+    <section class="section" id="lgll">
+      <div class="section-header">
+        <h2>3. T 細胞大顆粒淋巴球白血病 (T-LGLL / NK-LGLL)</h2>
+        <span class="sec-badge">LGLL-INTRO ~ LGLL-2A</span>
+      </div>
+      <p>成熟細胞毒性 T 細胞（約 85%）或 NK 細胞（NK-LGLL 約 10%，治療原則同 T-LGLL）之惰性淋巴增生疾病，常與<strong>自體免疫疾病</strong>重疊（類風濕性關節炎 RA / Felty 症候群、SLE、亞洲人常見純紅血球再生不良 PRCA）。約 30–50% 具 <strong>STAT3</strong> SH2 區域體細胞突變（中性球低下相關），少數具 <strong>STAT5B</strong> 突變（CD4+ 亞型）。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🔬 診斷與檢查重點 (LGLL-1)</div>
+          <ul>
+            <li><strong>必檢診斷：</strong>周邊血抹片見典型大顆粒淋巴球 (LGL，嗜天青顆粒，通常持續 &gt;6 個月)、流式細胞儀（典型：<strong>CD3+, CD8+, CD16+, CD57+, CD5/CD7 dim, TCRαβ+, TIA1+, Granzyme B/M+</strong>；含 TRBC1）、T 細胞單株性評估。</li>
+            <li><strong>排除反應性：</strong>無症狀且小型單株 LGL (&lt;0.5×10⁹/L) 或多株者，應於 <strong>6 個月後重測</strong> Flow 與單株性。</li>
+            <li><strong>必檢 Workup：</strong>肝脾淋巴結評估、自體免疫病史、CBC/DC、CMP、<strong>HIV 檢測</strong> <span class="tag new">v1.2027 必檢</span>、驗孕、困擾評估。</li>
+            <li><strong>特定情況：</strong>骨髓切片（LGL 計數 &lt;0.5×10⁹/L 或疑合併骨髓衰竭時必做）、MGPT (<em>STAT3, STAT5B</em>)、EBER-ISH（排除 ANKL）、自體免疫血清標記、CMV 血清（若欲用 Alemtuzumab）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">🚦 治療適應症 (LGLL-2)</div>
+          <p><strong>無以下適應症者 → 觀察 (Observe)！</strong></p>
+          <ul>
+            <li><strong>ANC &lt; 0.5 × 10⁹/L</strong>（重度嗜中性球低下）</li>
+            <li><strong>ANC &lt; 1.5 × 10⁹/L</strong> 合併確診 T-LGLL 且反覆感染</li>
+            <li><strong>Hb &lt; 10 g/dL</strong> 或需要輸注紅血球 (RBC)</li>
+            <li><strong>Platelets &lt; 50 × 10⁹/L</strong></li>
+            <li>症狀性脾腫大 (Symptomatic splenomegaly)</li>
+            <li>嚴重 B 症狀（須排除其他惡性腫瘤/感染/自體免疫）</li>
+            <li>繼發於 LGLL 之肺動脈高壓 (PAH)</li>
+          </ul>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:0;">*合併自體免疫疾病時強烈建議跨專科照護，以主要驅動病因為治療導向。</p>
+        </div>
+      </div>
+
+      <h3>💊 治療方案與 4 個月反應評估 (LGLL-2 / 2A)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>階段</th>
+              <th>建議方案</th>
+              <th>臨床用藥要點與劑量備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>第一線治療</strong></td>
+              <td><span class="tag pref">Preferred</span> 臨床試驗、<strong>Cyclophosphamide (PO)</strong>、<strong>Methotrexate (MTX)</strong><br/><em>*特定情況可僅處理血球低下</em></td>
+              <td>• <strong>Cyclophosphamide (PO)：</strong>第 III 期試驗顯示反應率優於 MTX (73% vs 32%)；劑量 <strong>100 mg/day 至第 8 月後減為 50 mg/day</strong> 完成 12 個月。<strong>4 個月無效即停藥，達 PR 建議限 ≤12 個月</strong>（防膀胱毒性/致白血病）。<br/>• <strong>MTX：</strong>常用 15–20 mg/週 (10 mg/m²/wk)，合併自體免疫疾病尤佳；長期須監測累積毒性。<br/>• 類固醇可初期輔助中度血球低下，但應儘速減量停用。</td>
+            </tr>
+            <tr>
+              <td><strong>4 個月評估無反應</strong></td>
+              <td>改用<strong>另一種一線藥物</strong>、<strong>Cyclosporine</strong> 或 <strong>Ruxolitinib</strong></td>
+              <td>• <strong>Cyclosporine：</strong>貧血/PRCA 有效。<br/>• <strong>Ruxolitinib：</strong>試驗劑量 20 mg BID（因血球低下常見，可減量至 10 或 5 mg BID，密集監測 CBC）；<em>STAT3</em> 突變者 EFS 顯著較佳。</td>
+            </tr>
+            <tr>
+              <td><strong>所有一線均難治/進展</strong></td>
+              <td><span class="tag pref">Preferred</span> 臨床試驗、Cyclosporine、Ruxolitinib (未曾用過)、Purine analogues (Pentostatin/Cladribine/Fludarabine)<br/><span class="tag">Other</span> <strong>Alemtuzumab (SC 首選，或 IV)</strong></td>
+              <td>• <strong>低劑量皮下 (SC) Alemtuzumab</strong> 療效相當於 IV 且毒性與病毒再活化較少；嚴重中性球低下或反覆感染者慎用，須 CMV 監測與 PJP 預防。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout ok">
+        <strong>4 個月反應定義：</strong><strong>CR</strong> = Hb &gt;12、ANC &gt;1.5、Plt &gt;150、淋巴球 &lt;4×10⁹/L 且循環 LGL &lt;0.5×10⁹/L；<strong>PR</strong> = Hb &gt;8、ANC &gt;0.5、Plt &gt;50 且無需輸血。達 CR/PR 可持續或間歇性治療。
+      </div>
+    </section>
+
+    <!-- 4. T-PLL -->
+    <section class="section" id="tpll">
+      <div class="section-header">
+        <h2>4. T 細胞前淋巴球白血病 (T-Cell Prolymphocytic Leukemia, T-PLL)</h2>
+        <span class="sec-badge">TPLL-1 ~ TPLL-C</span>
+      </div>
+      <p>罕見且高侵襲性成熟 T 細胞白血病（約佔成熟淋巴惡性腫瘤 2%），常伴隨高白血球、肝脾與淋巴結腫大、B 症狀、皮膚侵犯 (~30%) 及漿膜積液。多數高表現 <strong>CD52</strong>。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">✅ T-PLL 診斷標準 (TPLL-A)</div>
+          <p>符合<strong>全部 3 項主要標準</strong>，或符合<strong>前 2 項主要標準 + 至少 1 項次要標準</strong>即可確診：</p>
+          <ul>
+            <li><strong>主要標準 (Major)：</strong>
+              <ol>
+                <li>周邊血或骨髓具 T-PLL 表型細胞 <strong>&gt; 5 × 10⁹/L</strong>（免疫表型：CD2+, CD5+, CD7++, <strong>CD52++</strong>, TdT-, CD1a-；CD4+/8- 佔 65%，CD4+/8+ 佔 21%）。</li>
+                <li>T 細胞單株性（PCR 測 <em>TRB/TRG</em> 或 Flow 測 TRBC1）。</li>
+                <li><strong>14q32 或 Xq28 異常</strong>［inv(14)(q11;q32)、t(14;14)、t(X;14)］<strong>或</strong> <em>TCL1A/B</em>、<em>MTCP1</em> 過度表現。</li>
+              </ol>
+            </li>
+            <li><strong>次要標準 (Minor)：</strong>11q22.3 (<em>ATM</em>) 異常；第 8 號染色體異常 (idic(8)(p11), t(8;8), trisomy 8q)；第 5/12/13/22 號異常或複雜核型；特定器官侵犯（脾腫大、胸/腹水）。</li>
+          </ul>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:0;">*組織切片非診斷必需；必測 <strong>HTLV-1/2</strong>（T-PLL 應陰性以排除 ATLL）；特定情況考慮 MGPT <span class="tag new">v1.2027</span>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">💊 治療策略與處方 (TPLL-1/2 & TPLL-B)</div>
+          <ul>
+            <li><strong>無症狀惰性病患（少數）：</strong>觀察至進展或出現症狀。</li>
+            <li><strong>有症狀病患 — 第一線治療：</strong>
+              <ul>
+                <li><span class="tag pref">Preferred</span> 臨床試驗、<strong>Alemtuzumab (IV)</strong>（<strong>IV 顯著優於 SC</strong>，ORR 83–91%，CR 66–81%）。</li>
+                <li><span class="tag">Other</span> <strong>FMC</strong> (Fludarabine/Mitoxantrone/Cyclophosphamide) 後接 IV Alemtuzumab、或 <strong>Pentostatin + IV Alemtuzumab</strong>（適用於大腫塊/顯著肝脾腫大者）。</li>
+              </ul>
+            </li>
+            <li><strong>鞏固治療（關鍵治癒機會）：</strong>達 CR 或 PR 後強烈考慮 <strong>Allogeneic HCT</strong>（若無合適捐贈者或體力不適，考慮 Autologous HCT）。</li>
+            <li><strong>二線/後續治療：</strong><span class="tag pref">Preferred</span> 臨床試驗、<strong>Pentostatin</strong>；<span class="tag">Other</span> 未使用之一線方案、Bendamustine、Ruxolitinib、或若 CD52 仍陽性且緩解一段時間後復發，可<strong>再用 IV Alemtuzumab ± Pentostatin</strong>。</li>
+          </ul>
+          <div class="callout danger" style="margin-bottom:0;">
+            <strong>安全警語：</strong>Alemtuzumab 須透過 Access Programme 取得，務必執行 <strong>CMV 定量 PCR 監測、HSV/PJP 預防</strong>及 TLS 預防。
+          </div>
+        </div>
+      </div>
+
+      <details>
+        <summary>📏 展開查看：T-PLL 療效評估標準 (TPLL-C: Group A &amp; Group B)</summary>
+        <div class="table-wrap" style="margin-top:10px;">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>CR (全項皆符)</th><th>PR (A ≥2 項且 B ≥1 項改善)</th><th>PD (A 或 B 任 1 項符合)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>A. 淋巴結 / 脾臟</strong></td><td>淋巴結長徑 &lt;1.0 cm；脾 &lt;13 cm</td><td>SLD 縮小 ≥30%；脾超出正常部分縮小 ≥50%</td><td>SLD 增加 &gt;20%；脾超出部分增加 ≥50%</td></tr>
+              <tr><td><strong>A. 症狀 / 循環淋巴球 / 骨髓 / 特定部位</strong></td><td>無症狀；淋巴球 &lt;4×10⁹/L；骨髓 T-PLL &lt;5%；無積液/皮膚/CNS</td><td>淋巴球 ≤30×10⁹/L 且較基線降 ≥50%</td><td>淋巴球較基線增 ≥50%</td></tr>
+              <tr><td><strong>B. 血球恢復 (Plt / Hb / ANC)</strong></td><td>Plt ≥100、Hb ≥11 (未輸血)、ANC ≥1.5</td><td>達 CR 標準或較基線上升 ≥50%</td><td>Plt 或 ANC 降 ≥50%；Hb 降 ≥2 g/dL</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:12.5px; color:var(--text-muted);">*CRi = Group A 全達 CR 但 Group B 至少 1 項未達標。</p>
+      </details>
+    </section>
+
+    <!-- 5. ATLL -->
+    <section class="section" id="atll">
+      <div class="section-header">
+        <h2>5. 成人 T 細胞白血病/淋巴瘤 (Adult T-Cell Leukemia/Lymphoma, ATLL)</h2>
+        <span class="sec-badge">ATLL-1 ~ ATLL-D</span>
+      </div>
+      <p>由人類 T 細胞白血病病毒第一型 (<strong>HTLV-1</strong>) 引起之成熟 T 細胞惡性腫瘤，具長潛伏期。典型周邊血見<strong>「花細胞 (Flower cells)」</strong>（多葉核），免疫表型多為 <strong>CD4+, CD25+, CD7-, CD26-, dim CD3, CCR4+</strong>。</p>
+
+      <div class="callout warn">
+        <strong>ATLL 必做特殊篩檢與預防：</strong>確診時必檢 <strong>糞小桿線蟲 (Strongyloides) 血清學</strong>（陽性須治療以防致命性過度感染）並給予 <strong>PJP 預防</strong>。急性型 (Acute) 與淋巴瘤型 (Lymphoma) <strong>CNS 侵犯常見（約 10%），須做 CNS 評估 (頭 CT/MRI ± LP) 並給予 CNS 預防！</strong>
+      </div>
+
+      <h3>📋 Shimoyama 四大臨床亞型診斷對照 (ATLL-A)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>評估項目</th>
+              <th>Smoldering 陰燃型 (10%)</th>
+              <th>Chronic 慢性型 (10%)</th>
+              <th>Lymphoma 淋巴瘤型 (20%)</th>
+              <th>Acute 急性型 (60%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Anti-HTLV-1 抗體</strong></td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
+            <tr><td><strong>淋巴球 (×10⁹/L)</strong></td><td>&lt; 4</td><td><strong>≥ 4</strong> (T 細胞 ≥3.5)</td><td>&lt; 4</td><td>無限制</td></tr>
+            <tr><td><strong>異常 T 淋巴球 / 花細胞</strong></td><td>≥ 5% / 偶見</td><td>+ / 偶見</td><td>≤ 1% / 無</td><td>+ / 常見 (+)</td></tr>
+            <tr><td><strong>LDH / 校正血鈣</strong></td><td>≤ 1.5× ULN / &lt; 2.74 mmol/L</td><td>≤ 2× ULN / &lt; 2.74 mmol/L</td><td>無限制</td><td>常顯著升高 / 高血鈣</td></tr>
+            <tr><td><strong>病理證實淋巴結腫大</strong></td><td>無</td><td>可有</td><td><strong>有 (+)</strong></td><td>可有</td></tr>
+            <tr><td><strong>器官侵犯限制</strong></td><td>僅可有皮膚/肺部（無肝脾/CNS/骨/腹水/胸水/GI）</td><td>可有皮膚/肺/淋巴結/肝脾（<strong>無 CNS/骨/腹水/胸水/GI</strong>）</td><td>無限制</td><td>無限制（常伴多重器官侵犯）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">📊 ATLL 預後指標 (ATLL-3 & ATLL-C)</div>
+          <ul>
+            <li><strong>惰性型 (iATL-PI，依 sIL-2R)：</strong>
+              <ul>
+                <li>Low：&lt; 1,000 U/mL ｜ Int：1,000–6,000 U/mL</li>
+                <li><strong>High (高風險慢性型)：&gt; 6,000 U/mL</strong>（或 LDH 升高、低白蛋白、高 BUN）</li>
+              </ul>
+            </li>
+            <li><strong>侵襲型 ATL-PI：</strong>Stage III/IV、ECOG PS &gt;1、年齡 &gt;70、Albumin &lt;3.5、sIL-2R &gt;20,000（Low 1–2 / Int 3–4 / High 5–6）。</li>
+            <li><strong>改良版預後指標 (≤70 歲，評估移植)：</strong>Acute 亞型、CRP ≥2.5 mg/dL、ECOG 2–4、sIL-2R &gt;5,000、校正鈣 ≥12 mg/dL（Low 0–1 / Int 2–3 / High 4–5）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">🧭 各亞型一線與鞏固策略 (ATLL-2 ~ 4)</div>
+          <ul>
+            <li><strong>Smoldering：</strong>無症狀（無皮疹/伺機感染）→ 觀察或臨床試驗；有症狀 → 皮膚導向治療 (同 MF/SS) 或 <strong>Interferon + Zidovudine (IFN/ZDV)</strong>。</li>
+            <li><strong>Chronic 低/中風險：</strong>臨床試驗或 <strong>IFN/ZDV</strong>。</li>
+            <li><strong>Chronic 高風險：</strong>臨床試驗、IFN/ZDV 或<strong>全身化療</strong> → 有效者考慮 <strong>Allogeneic HCT</strong>。</li>
+            <li><strong>Acute 急性型：</strong>臨床試驗、<strong>全身化療</strong> 或 <strong>IFN/ZDV</strong> → 2 療程後評估，有效者考慮 <strong>Allo-HCT</strong>（唯一潛在治癒方式）。</li>
+            <li><strong>Lymphoma 淋巴瘤型：</strong>臨床試驗或<strong>全身化療</strong>（<strong>IFN/ZDV 單用無效！</strong>）→ 有效者考慮 <strong>Allo-HCT</strong>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>💊 ATLL 建議處方 (ATLL-D)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">第一線治療 (Initial Therapy)</div>
+          <ul>
+            <li><span class="tag pref">Preferred</span> 臨床試驗、<strong>CHP + BV (CD30+)</strong>、<strong>CHEP + BV (CD30+)</strong> <span class="tag new">v1.2027</span>、<strong>CHOP + Mogamulizumab-kpkc</strong>（<strong>限無移植計畫者</strong>）、<strong>DA-EPOCH</strong>、<strong>IFN / Zidovudine</strong>（Acute / Chronic / 有症狀 Smoldering；可用 Peginterferon alfa-2a 或 Ropeginterferon alfa-2b 替代）。</li>
+            <li><span class="tag">Other</span> CHOEP、HyperCVAD 交替 HD-MTX/Cytarabine。</li>
+            <li><span class="tag">Useful</span> CHOP（無法耐受高強度化療或 CD30-）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">二線及後續治療</div>
+          <ul>
+            <li><span class="tag pref">Preferred</span> 臨床試驗；<strong>單藥：</strong>BV (CD30+)、Lenalidomide、Mogamulizumab-kpkc；<strong>合併：</strong>DHA+鉑類、ESHA+鉑類、GDP、GemOx、GVD、ICE、IFN/ZDV。</li>
+            <li><span class="tag">Alternative</span> Alemtuzumab、Arsenic trioxide (三氧化二砷)、Belinostat、Bendamustine、Gemcitabine、Pralatrexate、局部症狀性 RT。</li>
+          </ul>
+          <div class="callout danger" style="margin-bottom:0;">
+            <strong>重要警語：</strong>① <strong>單用抗病毒藥（未併干擾素）無效</strong>；② <strong>Mogamulizumab 與 Lenalidomide</strong> 會顯著增加 Allo-HCT 後嚴重/類固醇難治性 <strong>GVHD</strong>，移植前須有較長洗脫期（建議 &gt;50 天）。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HSTCL -->
+    <section class="section" id="hstcl">
+      <div class="section-header">
+        <h2>6. 肝脾 T 細胞淋巴瘤 (Hepatosplenic T-Cell Lymphoma, HSTCL)</h2>
+        <span class="sec-badge">HSTCL-INTRO ~ HSTCL-A</span>
+      </div>
+      <div class="callout danger">
+        <strong>臨床核心警語：</strong>① <strong>CHOP 療效不足，不建議作為標準治療！</strong> ② 長期緩解幾乎僅見於接受 <strong>Allogeneic HCT 鞏固</strong> 之病患，確診時應立即做 <strong>HLA typing</strong> 並轉介移植團隊。③ HSTCL 為非淋巴結型，<strong>不適用 Lugano 標準</strong>，PET 陰性仍須以骨髓切片（及選定個案肝切片）確認緩解！
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🔬 臨床特徵、免疫表型與基因 (HSTCL-1/2)</div>
+          <ul>
+            <li><strong>流行病學：</strong>極罕見（≤2% TCL），好發於<strong>年輕男性（中位年齡 35 歲）</strong>；高達 <strong>20%</strong> 發生於慢性免疫抑制（如 IBD 併用 <strong>TNF-α 抑制劑 + Thiopurine</strong>、器官移植後）。</li>
+            <li><strong>表現：</strong>肝脾腫大、骨髓侵犯、血球低下、B 症狀、常見 <strong>HLH</strong>（Workup 必做 HLH 評估 TCLYM-F）；<strong>極少見明顯淋巴結腫大</strong>。</li>
+            <li><strong>診斷檢體：</strong>須以<strong>骨髓粗針切片或肝臟切片</strong>確診（單獨抹片/抽吸/FNA 不足）；可疑時於經驗中心考慮脾切片或脾切除。</li>
+            <li><strong>表型與基因：</strong>多為 <strong>TCR γδ+</strong>（少數 αβ 變異型，多見於 &gt;50 歲女性），典型 <strong>CD2+, CD3+, CD4-, CD5-, CD8-/+, CD56+/-, TIA1+, Granzyme B-</strong>。常見 <strong>isochromosome 7q、trisomy 8</strong>，及染色質修飾基因（<strong>SETD2, INO80, ARID1B</strong>）與 <strong>STAT5B / STAT3 / PIK3CD</strong> 突變。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">💊 誘導與鞏固治療 (HSTCL-3 & HSTCL-A)</div>
+          <ul>
+            <li><strong>目標：</strong>以非 CHOP 高強度誘導化療迅速達到 CR 或近 CR（低腫瘤負荷），儘早橋接 <strong>Allogeneic HCT</strong>（不一定需要打滿完整療程）。</li>
+            <li><strong>一線誘導處方 (HSTCL-A)：</strong>
+              <ul>
+                <li><span class="tag pref">Preferred</span> 臨床試驗、<strong>ICE</strong>（多數 NCCN 中心首選）</li>
+                <li><span class="tag">Other</span> <strong>DHA + 鉑類</strong> (Carbo/Cis/Oxaliplatin)、<strong>DA-EPOCH</strong>、<strong>HyperCVAD / HD-MTX-AraC</strong>、<strong>IVAC</strong> (Ifosfamide/Etoposide/Cytarabine)</li>
+                <li><span class="tag">Useful</span> Pentostatin + Alemtuzumab、CHOEP、CHP + BV (CD30+ <span class="tag cat2b">Cat 2B</span>)</li>
+              </ul>
+            </li>
+            <li><strong>鞏固：</strong>達 CR/PR → <strong>Allogeneic HCT（首選）</strong>；無捐贈者或不適異體者考慮 Auto-HCT。</li>
+            <li><strong>無反應/難治：</strong>先換用另一種一線方案；若 2 種一線皆難治 → 臨床試驗、PTCL-NOS 二線方案（Alemtuzumab, Pralatrexate, ESHAP 有報告反應）、Pentostatin 或 Cladribine。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ENKL & ANKL -->
+    <section class="section" id="enkl">
+      <div class="section-header">
+        <h2>7. 結外 NK/T 細胞淋巴瘤 (ENKL) &amp; 侵襲性 NK 細胞白血病 (ANKL)</h2>
+        <span class="sec-badge">ENKL-1 ~ ENKL-C</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🔬 ENKL 診斷與分期檢查 (ENKL-1/2)</div>
+          <ul>
+            <li><strong>病理關鍵：</strong>血管中心性與血管破壞性生長，<strong>極易伴隨大片壞死</strong>，切片應包含病灶邊緣，鼻咽可多處隨機切片。</li>
+            <li><strong>必檢 IHC &amp; EBER：</strong>初期 Panel 須含 <strong>CD2, cCD3ε, CD5, CD56, TIA1</strong>；典型 NK 細胞型為 cCD3ε+ (sCD3-), CD56+, 細胞毒性蛋白+, <strong>EBER-ISH 必為陽性</strong>（若 EBER 陰性應重新檢視診斷！）。</li>
+            <li><strong>Workup 特點：</strong>耳鼻喉科 (ENT) 鼻咽內視鏡檢查、睪丸與皮膚檢查、<strong>鼻腔/硬顎/前顱窩/鼻咽 MRI ± CT</strong>（供放療規劃並同步轉介放射腫瘤科）、<strong>定量 EBV-DNA PCR</strong>（診斷、預後與追蹤必備）、計算 <strong>PINK / PINK-E</strong>、骨髓切片（形態陰性須加做 EBER-ISH）。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📊 PINK / PINK-E 預後指標 (ENKL-A)</div>
+          <p><strong>危險因子：</strong>① 年齡 &gt;60 歲、② Stage III/IV、③ 遠處淋巴結侵犯、④ 非鼻型 (Non-nasal type)、⑤（僅 PINK-E）血漿/全血可偵測 <strong>EBV-DNA</strong>。</p>
+          <div class="table-wrap" style="margin:6px 0;">
+            <table>
+              <thead>
+                <tr><th>風險分組</th><th>PINK 因子數 (3年 OS)</th><th>PINK-E 因子數 (3年 OS)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Low 低風險</strong></td><td>0 項 (81%)</td><td>0–1 項 (81%)</td></tr>
+                <tr><td><strong>Intermediate 中風險</strong></td><td>1 項 (62%)</td><td>2 項 (55%)</td></tr>
+                <tr><td><strong>High 高風險</strong></td><td>≥ 2 項 (25%)</td><td>≥ 3 項 (28%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:0;">*ENKL 細胞高表現 P-glycoprotein (MDR1)，對傳統 Anthracycline (CHOP) 具抗藥性，<strong>必須使用含 Asparaginase (Pegaspargase) 之非 Anthracycline 方案</strong>！</p>
+        </div>
+      </div>
+
+      <h3>💊 ENKL 誘導、療畢評估與復發難治處方 (ENKL-3/4/5 & ENKL-B)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>臨床分層</th>
+              <th>建議治療策略</th>
+              <th>首選 (Preferred) 處方</th>
+              <th>其他推薦 / 備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>鼻型 Stage I–II<br/>(不適化療)</strong></td>
+              <td><strong>單獨 RT</strong> (50–55 Gy) 或臨床試驗</td>
+              <td>ISRT (強烈首選 IMRT)</td>
+              <td>早期放療對局部鼻型 ENKL 存活至關重要。</td>
+            </tr>
+            <tr>
+              <td><strong>鼻型 Stage I–II<br/>(適合化療)</strong></td>
+              <td>臨床試驗或 <strong>合併放化療 (Combined Modality Therapy)</strong></td>
+              <td>• <strong>CCRT：</strong>RT + DeVIC × 3<br/>• <strong>循序 (Sequential)：</strong>mSMILE × 2 → RT<br/>• <strong>三明治 (Sandwich)：</strong>GELAD × 2 → RT → GELAD × 2；或 P-GEMOX × 2 → RT → P-GEMOX × 2–4</td>
+              <td><strong>Other：</strong>CCRT (RT + Cisplatin) → VIPD × 3；循序 DDGP × 3 → RT。<br/><strong>療畢評估 (ENKL-4)：</strong>達 CR 或 PR (切片陰性) → 觀察。</td>
+            </tr>
+            <tr>
+              <td><strong>鼻型 Stage III–IV<br/>或<br/>鼻外型 Stage I–IV</strong></td>
+              <td>臨床試驗、合併放化療、或<strong>含 Asparaginase 化療 ± RT</strong></td>
+              <td>• <strong>DDGP</strong> × 3–6<br/>• <strong>P-GEMOX</strong><br/>• <strong>Modified SMILE</strong> × 4–6</td>
+              <td><strong>Useful：</strong>AspaMetDex（無法耐受高強度化療者）。<br/><strong>Pegaspargase 單次上限 3750 IU</strong>（過敏可換重組 Erwinia 門冬醯胺酶）。<br/><strong>療畢評估 (ENKL-4/5)：</strong>達 CR 或 PR (切片陰性) → <strong>考慮 HCT 鞏固</strong>（Auto 或 Allo 依個案決定）。</td>
+            </tr>
+            <tr>
+              <td><strong>復發 / 難治 (R/R)<br/>(ENKL-B 2 of 3)</strong></td>
+              <td>臨床試驗 (首選)、ICI、或換用未用過之含 Asparaginase 方案；達 CR 後考慮 HCT</td>
+              <td>• 臨床試驗<br/>• <strong>免疫檢查點抑制劑 (ICIs)：</strong><strong>Atezolizumab</strong> <span class="tag new">v1.2027</span>、<strong>Avelumab、Nivolumab、Pembrolizumab</strong></td>
+              <td><strong>Other：</strong>單藥 BV (CD30+)、Pralatrexate；合併替代含 Asparaginase 方案、<strong>Cemiplimab + Isatuximab</strong> <span class="tag cat2b">2B</span> <span class="tag new">v1.2027</span>、DHA+鉑類、ESHA+鉑類、GDP、GemOx、ICE。<br/><strong>Useful：</strong>RT、Belinostat/Romidepsin（<strong>注意 EBV 再活化！</strong>）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <strong>ENKL 移植與免疫治療警語：</strong>Allo-HCT 之前使用 ICI 可能增加移植相關死亡率 (TRM) 與嚴重超急性 GVHD。療畢評估必須包含影像 (PET/CT)、內視鏡切片及定量 EBV-DNA（EBV 病毒量未正常化視為殘留病灶間接證據）。
+      </div>
+
+      <h3>⚡ 侵襲性 NK 細胞白血病 (Aggressive NK-Cell Leukemia, ANKL — ENKL-C)</h3>
+      <div class="card">
+        <ul>
+          <li><strong>臨床特徵：</strong>罕見、極具侵襲性（中位存活 &lt;2 個月），好發年輕人（中位 40 歲），常以發燒、B 症狀、<strong>合併 HLH</strong>、肝脾與淋巴結腫大表現；與 ENKL 不同，<strong>通常無鼻腔或皮膚侵犯</strong>。可由慢性活動性 EBV (CAEBV) 進展而來。</li>
+          <li><strong>診斷與免疫表型：</strong>多由<strong>骨髓切片</strong>確診；幾乎皆為 <strong>EBER-ISH (+)</strong>，表現 <strong>CD2+, cCD3ε+, CD16+ (特徵性，區別於 ENKL), CD56+, CD94+, 細胞毒性蛋白+</strong>；常見 <em>STAT3</em> 突變（不具 <em>JAK3</em> 突變）。</li>
+          <li><strong>治療原則：</strong>Anthracycline 方案無效！採用 <strong>ENKL 含 Asparaginase/Pegaspargase 合併化療</strong>，達初次緩解 (CR1) 後 NCCN 專家群<strong>優先建議 Allogeneic HCT 鞏固</strong>（優於 Auto-HCT）。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. INTCL -->
+    <section class="section" id="intcl">
+      <div class="section-header">
+        <h2>8. 胃腸道惰性 T/NK 細胞淋巴增生性疾病 (GI Indolent T-LPD &amp; NK-LPD)</h2>
+        <span class="sec-badge">INTCL-1 ~ INTCL-2</span>
+      </div>
+      <div class="callout ok">
+        <strong>治療黃金原則：</strong>此類疾病病程極為惰性、總存活率極佳（甚至可自發性緩解或切除後緩解），<strong>應採取保守治療（觀察或類固醇），務必避免侵襲性合併化療！</strong>（註：近期亦有 CAR-T 治療後於腸胃道發生類似惰性單株 T-LPD 之報告。）
+      </div>
+      <p>常見症狀為腹瀉、腹痛、體重減輕或無症狀內視鏡意外發現；分期建議內視鏡切片 + FDG-PET/CT + 骨髓切片 + 周邊血 Flow（若出現腸胃道外病灶，須考慮其他侵襲性 T 細胞淋巴瘤）。</p>
+
+      <h3>🔍 五大原發性腸胃道 T/NK 細胞疾病鑑別對照表 (INTCL-2)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>疾病名稱</th>
+              <th>好發部位與病程</th>
+              <th>組織形態</th>
+              <th>關鍵免疫表型 &amp; TCR</th>
+              <th>常見基因突變</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Indolent GI T-LPD</strong><br/>(WHO5: Indolent TCL of GI)</td>
+              <td>全 GI（小腸/結腸最常見）；慢性惰性復發、極低轉化風險</td>
+              <td>小型單形性非破壞性浸潤，無明顯異型性或嗜上皮性，可見肉芽腫</td>
+              <td>CD2+, CD3+, CD4+/-, CD30-, CD56-, EBV-, Granzyme B-, <strong>Ki-67 &lt;10%</strong>｜TCR αβ</td>
+              <td><strong>STAT3::JAK2</strong>, STAT5::JAK2, STAT3, SOCS1 del, TET2, DNMT3A</td>
+            </tr>
+            <tr>
+              <td><strong>Indolent GI NK-LPD</strong><br/>(NK-cell enteropathy)</td>
+              <td>全 GI（<strong>胃與十二指腸</strong>最常見）；可自發緩解，<strong>不轉化</strong>為侵襲性淋巴瘤；較常潰瘍</td>
+              <td>中型不規則核細胞、稀疏顆粒、偶見糜爛潰瘍</td>
+              <td><strong>cCD3+ (IHC+, Flow-)</strong>, CD4-, CD5-, <strong>CD56+</strong>, <strong>EBV-</strong>, Granzyme B+, Perforin+, TIA1+</td>
+              <td><strong>JAK3</strong></td>
+            </tr>
+            <tr>
+              <td><strong>EATL</strong><br/>(腸病相關 TCL)</td>
+              <td>小腸為主，常多灶性；與<strong>第二型難治性乳糜瀉 (RCD II)</strong> 相關</td>
+              <td>中至大型單形或多形性細胞</td>
+              <td>CD3+, CD4-, CD5-, CD56-, <strong>CD103+</strong>, EBV-, CD30-/+｜αβ &gt; γδ</td>
+              <td>JAK1, STAT3, TNFAIP3, KMT2D, TET2, KRAS, BRAF, TP53</td>
+            </tr>
+            <tr>
+              <td><strong>MEITL</strong><br/>(單形性嗜上皮腸道 TCL)</td>
+              <td>小腸（空腸為主）；與乳糜瀉無關</td>
+              <td>單形性小至中型細胞，中等淡染細胞質，明顯嗜上皮性</td>
+              <td>CD3+, CD4-, CD5-, <strong>CD8+/-, CD56+</strong>, EBV-, TIA1+｜<strong>γδ &gt; αβ</strong></td>
+              <td><strong>SETD2, STAT5B</strong>, JAK3, TP53, MYC</td>
+            </tr>
+            <tr>
+              <td><strong>Intestinal TCL, NOS</strong></td>
+              <td>小腸為主，可多灶性</td>
+              <td>多形性中/大型細胞</td>
+              <td>CD3+, CD4+ 或 CD8+ 或雙陰性, EBV-｜αβ &gt; γδ</td>
+              <td>JAK3, JAK1, STAT5B, TET2, DNMT3A, SETD2, KRAS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. BIOMARKERS -->
+    <section class="section" id="biomarkers">
+      <div class="section-header">
+        <h2>9. 生物標記檢測原則 (Principles of Biomarker Testing)</h2>
+        <span class="sec-badge">TCLYM-A (1–4)</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>生物標記 / 基因變異</th>
+              <th>相關疾病</th>
+              <th>檢測方法</th>
+              <th>診斷、預後與治療意義</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TRB / TRG 基因重排</strong></td>
+              <td>PTCL, T-PLL, ENKL, HSTCL</td>
+              <td>PCR / HTS / MGPT（Flow 可測 Vβ 或 TRBC1）</td>
+              <td>證實 T 細胞單株擴增（單獨陽性不足以診斷，因良性反應亦可見；陰性亦不排除）；有助分期與殘留監測。</td>
+            </tr>
+            <tr>
+              <td><strong>ALK 基因重排</strong><br/>t(2;5)(p23;q35) <em>NPM1::ALK</em></td>
+              <td>CD30+ ALCL</td>
+              <td>IHC、FISH (2p23)、Targeted mRNA-seq</td>
+              <td>區分 ALK+ 與 ALK- ALCL；<strong>ALK+ 預後較佳</strong>，且復發時可用 <strong>ALK 抑制劑</strong>治療。</td>
+            </tr>
+            <tr>
+              <td><strong>DUSP22::IRF4 重排</strong> (6p25.3)</td>
+              <td>ALK- ALCL (~30%)</td>
+              <td>FISH</td>
+              <td>ALK- ALCL 特殊分子亞型；預後具跨研究變異性（部分似 ALK+，部分無影響），臨床上仍可參考評估。</td>
+            </tr>
+            <tr>
+              <td><strong>TP63 基因融合</strong> (3q28, <em>TBL1XR1::TP63</em>)</td>
+              <td>ALK- ALCL (~8%)</td>
+              <td>FISH、Targeted mRNA-seq（若 TP63 IHC+）</td>
+              <td>識別<strong>高度侵襲性、預後極差</strong>（5 年 OS 約 17%）之 ALK- ALCL 亞群。</td>
+            </tr>
+            <tr>
+              <td><strong>JAK2 / TYK2 重排</strong></td>
+              <td>ALK- ALCL 及其他 TCL</td>
+              <td>MGPT 或 FISH</td>
+              <td>致癌酪胺酸激酶活化；<em>JAK2</em> 重排可指導 <strong>JAK2 抑制劑</strong>治療策略。</td>
+            </tr>
+            <tr>
+              <td><strong>TCL1 / TRA 轉位</strong><br/>inv(14), t(14;14)</td>
+              <td>T-PLL</td>
+              <td>FISH、傳統核型分析</td>
+              <td>活化 <em>TCL1A / MTCP1-B1</em>，為 T-PLL 關鍵診斷標準，區分 Sézary 症候群與 ATLL。</td>
+            </tr>
+            <tr>
+              <td><strong>TET2 / IDH2 / RHOA G17V / DNMT3A</strong></td>
+              <td>Nodal TFH / AITL</td>
+              <td>NGS / MGPT</td>
+              <td>區分 TFH/AITL 與其他 PTCL；與對 <strong>HDAC 抑制劑及其他表觀遺傳藥物</strong>較高反應率相關。</td>
+            </tr>
+            <tr>
+              <td><strong>STAT3 / STAT5B 突變</strong></td>
+              <td>LGLL (~50%), ANKL, HSTCL</td>
+              <td>NGS / MGPT (STAT3 exons 13–21)</td>
+              <td>輔助診斷 LGLL、ANKL、HSTCL；<em>STAT5B</em> 突變常與較侵襲性亞型相關。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10. SUPPORTIVE CARE -->
+    <section class="section" id="supportive">
+      <div class="section-header">
+        <h2>10. 支持性照護與特殊藥物毒性管理</h2>
+        <span class="sec-badge">TCLYM-B (1–3)</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">⚠️ 腫瘤溶解症候群 (TLS)</div>
+          <ul>
+            <li><strong>特徵：</strong>高鉀、高尿酸、高磷、低鈣、肌酸酐上升；症狀含噁心嘔吐、喘、心律不整、尿濁、倦怠。</li>
+            <li><strong>高風險因子（須予防）：</strong>自發性 TLS、高腫瘤負荷/大腫塊、高 WBC、骨髓侵犯、原已高尿酸、腎臟疾病或腫瘤侵犯腎臟。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">🦠 病毒再活化與抗感染預防</div>
+          <ul>
+            <li><strong>CMV 再活化（高風險：PI3Ki [Duvelisib ± Romidepsin] 與 Alemtuzumab）：</strong>至少<strong>每 2–3 週定量 CMV PCR</strong>（至療後 2 個月）；陽性或上升時以 Ganciclovir 先制治療；用 Alemtuzumab 前可確認 CD52 表現。</li>
+            <li><strong>JCV 再活化 / PML（Brentuximab vedotin）：</strong>罕見但通常致命！注意意識混亂、頭暈失衡、言語/步態困難、視力變化；以 CSF PCR 診斷，無特效藥。</li>
+            <li><strong>抗感染預防（PI3Ki / Alemtuzumab 治療期間及療後）：</strong>HSV 預防 (Acyclovir)、PJP 預防 (TMP-SMX)、ATLL 篩檢/治療 <strong>Strongyloides</strong>、考慮抗黴菌預防。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">💊 Pralatrexate 黏膜炎預防（三聯必要措施）</div>
+          <ol>
+            <li><strong>Vitamin B12 1000 mcg IM：</strong>治療前 ≤10 週內開始，之後每 8–10 週一次。</li>
+            <li><strong>口服葉酸 (Folic acid) 1–1.25 mg/day：</strong>治療前 10 天內開始，持續至末劑後 30 天。</li>
+            <li><strong>口服 Leucovorin：</strong>每次 Pralatrexate 給藥 <strong>24 小時後</strong>開始，<strong>25 mg TID × 2 天（共 6 劑）</strong>，可顯著降低黏膜炎而不影響療效。</li>
+          </ol>
+        </div>
+        <div class="card">
+          <div class="card-title">🔥 Lenalidomide &amp; Mogamulizumab 特殊反應</div>
+          <ul>
+            <li><strong>Tumor Flare (Lenalidomide)：</strong>治療初期疼痛性淋巴結腫大/發炎、脾大、低燒、皮疹。治療用 Prednisone 25–50 mg PO × 5–10 天 + 抗組織胺；大淋巴結 (&gt;5 cm) 可先用 Prednisone 20 mg × 5–7 天預防。</li>
+            <li><strong>Mogamulizumab 相關 GVHD：</strong>用藥後 <strong>50 天內</strong>進行 Allo-HCT 具極高嚴重/難治性 GVHD 與死亡風險！</li>
+            <li><strong>Mogamulizumab 相關皮疹 (MAR)：</strong>臨床極似皮膚 T 細胞淋巴瘤進展，<strong>須做皮膚切片鑑別</strong>（MAR 反而可能預示持久療效）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. LUGANO & RT -->
+    <section class="section" id="lugano-rt">
+      <div class="section-header">
+        <h2>11. Lugano 療效評估標準 &amp; 放射治療原則</h2>
+        <span class="sec-badge">TCLYM-C &amp; TCLYM-D</span>
+      </div>
+
+      <h3>🎯 PET 五分量表 (Deauville 5-PS) 與 Lugano 療效標準 (TCLYM-C)</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">PET Five-Point Scale (5-PS)</div>
+          <ul>
+            <li><strong>1 分：</strong>無高於背景之攝取</li>
+            <li><strong>2 分：</strong>攝取 ≤ 縱膈腔 (mediastinum)</li>
+            <li><strong>3 分：</strong>攝取 &gt; 縱膈腔但 ≤ 肝臟（標準治療下多視為 PET 陰性 / CMR）</li>
+            <li><strong>4 分：</strong>攝取中度 &gt; 肝臟</li>
+            <li><strong>5 分：</strong>攝取顯著 &gt; 肝臟 及/或 出現新病灶</li>
+            <li><strong>X：</strong>不太可能與淋巴瘤相關之新攝取區</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">代謝反應 (PET-CT) vs 影像反應 (CT)</div>
+          <ul>
+            <li><strong>CR：</strong>PET 1–3 分（無論有無殘留腫塊）且骨髓無 FDG 病灶；CT 目標淋巴結均縮小至 ≤1.5 cm、無結外病灶、器官恢復正常。</li>
+            <li><strong>PR：</strong>PET 4–5 分但較基線下降且無新病灶；CT 最多 6 處目標病灶 SPD 縮小 ≥50%、脾超出部分縮小 &gt;50%。</li>
+            <li><strong>SD：</strong>PET 4–5 分無顯著變化；CT SPD 縮小 &lt;50% 且未達 PD。</li>
+            <li><strong>PD：</strong>PET 4–5 分攝取增加或出現新病灶（偽陽性常見，療畢確認復發仍以<strong>切片為黃金標準</strong>）；CT 單一病灶 LDi &gt;1.5 cm 且 PPD 自最低點增 ≥50%。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>☢️ 放射治療原則 (ISRT) 與各亞型劑量表 (TCLYM-D)</h3>
+      <p>全面採用現代 <strong>受累部位放療 (ISRT)</strong>，不需預防性照射未受累淋巴結；縱膈腔病灶建議 4D-CT + 呼吸調控 (DIBH) + IGRT 保護心肺。<strong>ENKL 鼻型強烈首選 IMRT</strong>，規劃須結合顯影劑 CT + MRI + PET/CT，CTV 須涵蓋整個受累鼻腔與鄰近鼻竇（單側前/中鼻腔須含雙側鼻腔、同側上頷竇、雙側前篩竇；後鼻腔受累須含鼻咽）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>疾病與情境</th><th>建議劑量 (傳統分次)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>PTCL 化療後鞏固</strong></td><td>達 CR：<strong>30–36 Gy</strong> ｜ 達 PR：<strong>40–50 Gy</strong></td></tr>
+            <tr><td><strong>PTCL 難治 / 不適化療之主要治療</strong></td><td><strong>40–55 Gy</strong></td></tr>
+            <tr><td><strong>PTCL 合併 HCT</strong></td><td><strong>20–36 Gy</strong>（視病灶位置與既往放療史）</td></tr>
+            <tr><td><strong>BIA-ALCL 局部殘留病灶</strong></td><td><strong>24–36 Gy</strong></td></tr>
+            <tr><td><strong>ENKL 單獨放療 (不適化療)</strong></td><td><strong>50–55 Gy</strong></td></tr>
+            <tr><td><strong>ENKL 合併放化療</strong></td><td>總範圍 <strong>45–56 Gy</strong>：<br/>• CCRT：DeVIC 併 <strong>50 Gy</strong>；Cisplatin 併 <strong>50–54 Gy</strong> → VIPD<br/>• 循序：mSMILE → <strong>45–50.4 Gy</strong>；DDGP → <strong>50 Gy</strong><br/>• 三明治：P-GEMOX (2) → <strong>56 Gy</strong> → P-GEMOX；GELAD (2) → <strong>50–56 Gy</strong> → GELAD</td></tr>
+            <tr><td><strong>姑息性放療 (Palliative RT)</strong></td><td><strong>20–36 Gy</strong>（分 5–18 次）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 12. IHC & HLH -->
+    <section class="section" id="ihc-hlh">
+      <div class="section-header">
+        <h2>12. 免疫表型鑑別 (TCLYM-E) &amp; 次發性 HLH 處置 (TCLYM-F)</h2>
+        <span class="sec-badge">TCLYM-E &amp; TCLYM-F</span>
+      </div>
+
+      <div class="callout">
+        <strong>免疫表型鑑別黃金法則 (TCLYM-E)：</strong>形態與臨床位置（皮膚 vs 結外非皮膚 vs 結內）引導抗體選擇；通常先做 1 個 pan-B (CD20) + 1 個 pan-T (CD3)。<strong>只要 CD30 陽性，務必加做 ALK！</strong> 病毒檢測含 EBV 與單株 HTLV-1。
+      </div>
+
+      <h3>🔥 次發性噬血球性淋巴組織球增生症 (Secondary HLH — TCLYM-F)</h3>
+      <p>淋巴瘤相關 HLH 死亡率極高（T 細胞淋巴瘤合併 HLH 60 天死亡率 31%，中位存活僅 4 個月），須高度警覺並迅速介入。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🚨 臨床表現與 OHI 診斷指數</div>
+          <ul>
+            <li><strong>典型表現：</strong>持續高燒、肝脾腫大、兩系以上血球低下（Hb &lt;9、Plt &lt;100k、ANC &lt;1k）、高三酸甘油脂 (&gt;265 mg/dL) 及/或 低纖維蛋白原 (&lt;1.5 g/L)、骨髓/脾/淋巴結見噬血現象、<strong>Ferritin &gt;500 ng/mL</strong>、<strong>sIL-2R (sCD25) &gt;2400 U/mL</strong>、肝指數/膽紅素/LDH/D-dimer 升高。</li>
+            <li><strong>OHI 指數 (Optimized HLH Inflammatory Index)：</strong><strong>sCD25 &gt; 3,900 U/mL 且 Ferritin &gt; 1,000 ng/mL</strong>，可精準識別惡性腫瘤相關 HLH 並高度預測死亡率！（H-Score 主要驗證於非惡性病因。）</li>
+            <li><strong>病因探查：</strong>排除感染 (CMV, HHV8, Adenovirus, EBV, HIV, HTLV, HBV/HCV)、自體免疫 (ANA, RF)、惡性腫瘤（PET/CT、切除性淋巴結切片、骨髓切片）。<strong>年輕肝脾腫大合併 HLH 者強烈建議肝切片以排除 HSTCL！</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">💊 T/NK 細胞淋巴瘤相關 HLH 治療原則</div>
+          <ul>
+            <li><strong>核心原則：</strong>針對潛在淋巴瘤亞型立即治療（優先臨床試驗）。</li>
+            <li><strong>抗發炎前導 / 初始治療：</strong>
+              <ul>
+                <li>等待病理確診或病況不穩無法立刻標準化療時，可先給予 <strong>Dexamethasone (10 mg/m²) ± Etoposide</strong>。</li>
+                <li>若符合該淋巴瘤亞型，優先考慮<strong>含 Etoposide 之化療方案</strong>（高齡或腎功能差時酌減 Etoposide 劑量，但<strong>單純高膽紅素或嗜中性球低下不建議減量</strong>）。</li>
+                <li>臨床改善後應儘速遞減類固醇；非 ENKL 但伴隨 EBV 病毒血症者可考慮加用 <strong>Rituximab</strong>。</li>
+              </ul>
+            </li>
+            <li><strong>復發/難治 (1–2 週無改善或惡化)：</strong>先徹底排除合併伺機性感染！可用 <strong>Ruxolitinib、Anakinra、Emapalumab、Tocilizumab</strong>、Alemtuzumab，或 <strong>DEP / DED + Ruxolitinib</strong>。</li>
+            <li><strong>監測與支持：</strong>住院者常每日監測發燒、CBC、Fibrinogen、Ferritin，每週測 sIL-2R；長期用類固醇須加<strong>抗病毒、PJP 及抗黴菌（含抗黴菌絲如 Posaconazole/Isavuconazonium）預防</strong>。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. CLASSIFICATION & STAGING -->
+    <section class="section" id="classification">
+      <div class="section-header">
+        <h2>13. WHO5 (2024) vs ICC (2022) 分類對照與分期系統</h2>
+        <span class="sec-badge">ST-1 ~ ST-3 &amp; CAT-1</span>
+      </div>
+
+      <h3>📚 成熟 T/NK 細胞腫瘤分類對照表 (ST-1 / ST-2)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ICC (2022) 名稱</th>
+              <th>WHO5 (2024) 名稱</th>
+              <th>中文對照 / 備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>T-cell prolymphocytic leukemia</td><td>T-prolymphocytic leukaemia</td><td>T 細胞前淋巴球白血病 (T-PLL)</td></tr>
+            <tr><td>T-cell large granular lymphocytic leukemia</td><td>T-large granular lymphocytic leukaemia</td><td>T 細胞大顆粒淋巴球白血病 (T-LGLL)</td></tr>
+            <tr><td><em>Chronic lymphoproliferative disorder of NK cells</em> (暫定)</td><td>NK-large granular lymphocytic leukaemia (正式)</td><td>NK 細胞大顆粒淋巴球白血病 (NK-LGLL)</td></tr>
+            <tr><td>Aggressive NK cell leukemia</td><td>Aggressive NK-cell leukaemia</td><td>侵襲性 NK 細胞白血病 (ANKL)</td></tr>
+            <tr><td>Adult T-cell leukemia/lymphoma</td><td>Adult T-cell leukaemia/lymphoma</td><td>成人 T 細胞白血病/淋巴瘤 (ATLL)</td></tr>
+            <tr><td><em>Primary nodal EBV-positive T-cell/NK-cell lymphoma</em> (暫定)</td><td>EBV-positive nodal T- and NK-cell lymphoma</td><td>原發結內 EBV 陽性 T/NK 細胞淋巴瘤</td></tr>
+            <tr><td>Extranodal NK/T-cell lymphoma, nasal type</td><td>Extranodal NK/T-cell lymphoma</td><td>結外 NK/T 細胞淋巴瘤 (ENKL)</td></tr>
+            <tr><td>Enteropathy-associated T-cell lymphoma (含 RCD II)</td><td>Enteropathy-associated T-cell lymphoma</td><td>腸病相關 T 細胞淋巴瘤 (EATL)</td></tr>
+            <tr><td>Monomorphic epitheliotropic intestinal T-cell lymphoma</td><td>Monomorphic epitheliotropic intestinal T-cell lymphoma</td><td>單形性嗜上皮腸道 T 細胞淋巴瘤 (MEITL)</td></tr>
+            <tr><td>Intestinal T-cell lymphoma, NOS</td><td>Intestinal T-cell lymphoma, NOS</td><td>腸道 T 細胞淋巴瘤非特定型</td></tr>
+            <tr><td>Indolent clonal T-cell LPD of the GI tract</td><td>Indolent T-cell lymphoma of the GI tract</td><td>胃腸道惰性 T 細胞淋巴瘤 / T-LPD</td></tr>
+            <tr><td>Indolent NK-cell LPD of the GI tract</td><td>Indolent NK-cell LPD of the GI tract</td><td>胃腸道惰性 NK 細胞淋巴增生疾病</td></tr>
+            <tr><td>Hepatosplenic T-cell lymphoma</td><td>Hepatosplenic T-cell lymphoma</td><td>肝脾 T 細胞淋巴瘤 (HSTCL)</td></tr>
+            <tr><td>Peripheral T-cell lymphoma, NOS</td><td>Peripheral T-cell lymphoma, NOS</td><td>周邊 T 細胞淋巴瘤非特定型 (PTCL-NOS)</td></tr>
+            <tr><td>Follicular helper T-cell lymphoma (angioimmunoblastic / follicular / NOS)</td><td>Nodal TFH cell lymphoma (angioimmunoblastic-type / follicular-type / NOS)</td><td>結內濾泡輔助型 T 細胞淋巴瘤 (AITL 等)</td></tr>
+            <tr><td>ALCL, ALK-positive / ALK-negative / Breast implant-associated ALCL</td><td>ALCL: ALK-positive / ALK-negative / BIA-ALCL</td><td>間變性大細胞淋巴瘤 (ALK+ / ALK- / BIA-ALCL)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">📏 Lugano 修正版 Ann Arbor 分期 (ST-3)</div>
+          <ul>
+            <li><strong>Limited 侷限期：</strong>
+              <ul>
+                <li><strong>Stage I：</strong>單一淋巴結群，或單一結外病灶無淋巴結侵犯 (IE)。</li>
+                <li><strong>Stage II：</strong>橫膈膜同側 ≥2 處淋巴結群，或 Stage I/II 合併局部鄰近結外侵犯 (IIE)。</li>
+                <li><strong>Stage II bulky：</strong>Stage II 合併大腫塊（視亞型與預後歸為侷限或晚期）。</li>
+              </ul>
+            </li>
+            <li><strong>Advanced 晚期：</strong>
+              <ul>
+                <li><strong>Stage III：</strong>橫膈膜兩側淋巴結侵犯，或橫膈膜上方淋巴結合併脾臟侵犯。</li>
+                <li><strong>Stage IV：</strong>額外非連續性結外淋巴組織侵犯。</li>
+              </ul>
+            </li>
+          </ul>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:0;">*扁桃腺、Waldeyer's ring 與脾臟均視為淋巴結組織；Lugano 分期已移除 A/B 分類。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🏅 NCCN 證據與偏好等級 (CAT-1)</div>
+          <ul>
+            <li><span class="tag cat1">Category 1</span> 高等級證據（≥1 項隨機 III 期試驗或高品質統合分析）且一致共識 (≥85%)。</li>
+            <li><span class="tag">Category 2A</span> 較低等級證據但一致共識 (≥85%) — <strong>本指引預設等級</strong>。</li>
+            <li><span class="tag cat2b">Category 2B</span> 較低等級證據且具共識 (50%–84%)。</li>
+            <li><span class="tag cat3">Category 3</span> 任何等級證據但專家間存在重大分歧。</li>
+            <li><strong>偏好分類：</strong><span class="tag pref">Preferred</span>（療效/安全性/證據最優）＞ Other recommended ＞ Useful in certain circumstances。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      資料整理自 NCCN Clinical Practice Guidelines in Oncology: T-Cell Lymphomas Version 1.2027 (Nov 10, 2026)。<br/>
+      本網站僅供醫療專業人員學術學習與快速查閱參考，實際臨床決策請依個別病人狀況與最新原文指引判斷。
+    </footer>
+  </main>
+
+  <button class="to-top" id="toTop" title="回到頂部">↑</button>
+
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('tcell-theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeBtn.textContent = '☀️';
+    }
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('tcell-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '🌙' : '☀️';
+    });
+
+    // Mobile sidebar drawer
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const closeDrawer = () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); };
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('show');
+    });
+    overlay.addEventListener('click', closeDrawer);
+    sidebar.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeDrawer));
+
+    // Tabs
+    document.querySelectorAll('.tabs').forEach(tabBar => {
+      const buttons = tabBar.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const parent = tabBar.parentElement;
+          parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+          const target = document.getElementById(btn.dataset.target);
+          if (target) target.classList.add('active');
+        });
+      });
+    });
+
+    // Scrollspy & Back-to-top
+    const sections = Array.from(document.querySelectorAll('section.section'));
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const toTop = document.getElementById('toTop');
+
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('show', window.scrollY > 400);
+      let current = sections[0]?.id;
+      for (const sec of sections) {
+        if (!sec.classList.contains('search-hidden') && sec.getBoundingClientRect().top <= 110) {
+          current = sec.id;
+        }
+      }
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Instant Search with Highlighting
+    const searchInput = document.getElementById('searchInput');
+    const clearSearch = document.getElementById('clearSearch');
+    const searchCount = document.getElementById('searchCount');
+    const noResults = document.getElementById('noResults');
+
+    function removeHighlights(root) {
+      root.querySelectorAll('mark.hl').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    }
+
+    function highlightNode(node, regex) {
+      if (node.nodeType === 3) {
+        const text = node.nodeValue;
+        if (!regex.test(text)) return 0;
+        regex.lastIndex = 0;
+        const frag = document.createDocumentFragment();
+        let lastIdx = 0, count = 0, m;
+        while ((m = regex.exec(text)) !== null) {
+          if (m.index > lastIdx) frag.appendChild(document.createTextNode(text.slice(lastIdx, m.index)));
+          const mark = document.createElement('mark');
+          mark.className = 'hl';
+          mark.textContent = m[0];
+          frag.appendChild(mark);
+          lastIdx = regex.lastIndex;
+          count++;
+        }
+        if (lastIdx < text.length) frag.appendChild(document.createTextNode(text.slice(lastIdx)));
+        node.parentNode.replaceChild(frag, node);
+        return count;
+      } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'MARK'].includes(node.tagName)) {
+        let count = 0;
+        Array.from(node.childNodes).forEach(child => { count += highlightNode(child, regex); });
+        return count;
+      }
+      return 0;
+    }
+
+    function runSearch() {
+      const q = searchInput.value.trim();
+      clearSearch.style.display = q ? 'inline-block' : 'none';
+      removeHighlights(document.getElementById('mainContent'));
+
+      if (!q) {
+        sections.forEach(s => s.classList.remove('search-hidden'));
+        searchCount.textContent = '';
+        noResults.style.display = 'none';
+        return;
+      }
+
+      const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(escaped, 'gi');
+      let visibleSections = 0;
+      let totalMatches = 0;
+
+      sections.forEach(sec => {
+        // Also search inside inactive tab panels and auto-open matching tab
+        const text = sec.textContent;
+        if (regex.test(text)) {
+          regex.lastIndex = 0;
+          sec.classList.remove('search-hidden');
+          visibleSections++;
+          totalMatches += highlightNode(sec, regex);
+          const tabPanels = sec.querySelectorAll('.tab-panel');
+          if (tabPanels.length) {
+            for (const panel of tabPanels) {
+              if (panel.querySelector('mark.hl')) {
+                const bar = sec.querySelector('.tabs');
+                if (bar) {
+                  bar.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.target === panel.id));
+                  tabPanels.forEach(p => p.classList.toggle('active', p === panel));
+                }
+                break;
+              }
+            }
+          }
+        } else {
+          sec.classList.add('search-hidden');
+        }
+      });
+
+      searchCount.textContent = `${totalMatches} 處`;
+      noResults.style.display = visibleSections === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', runSearch);
+    clearSearch.addEventListener('click', () => { searchInput.value = ''; runSearch(); searchInput.focus(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        runSearch();
+        searchInput.blur();
+      }
+    });
+  </script>
+</body>
+</html>
